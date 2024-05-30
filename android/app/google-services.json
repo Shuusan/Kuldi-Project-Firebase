@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "15847640484",
+    "firebase_url": "https://kuldiproject-firebase-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "kuldiproject-firebase",
+    "storage_bucket": "kuldiproject-firebase.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15847640484:android:d70fb094e51c22103c0531",
+        "android_client_info": {
+          "package_name": "com.example.kuldi_firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA9W5Dx5NDix7XUoL-wT39KXmZ6hXF2P3g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
