@@ -1,42 +1,44 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:kuldi_firebase/firebase_options.dart';
-import 'package:kuldi_firebase/components/miscellaneous_list.dart';
+import 'package:kuldi_firebase/home.dart';
+import 'package:kuldi_firebase/home_controller.dart';
+import 'package:window_manager/window_manager.dart';
 
 Future<void> main() async {
   // Pastikan kalau semua binding sudah selesai sebelum runApp
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Pastikan kalau pengaturan untuk setting window sudah selesai
+  await windowManager.ensureInitialized();
+
+  // Setting Window
+  windowManager.waitUntilReadyToShow(_windowsOptionSetting(), () async {
+    await windowManager.show();
+    await windowManager.focus();
+    await windowManager.setAlwaysOnTop(true);
+
+    //await windowManager.setResizable(false);
+  });
+
   // Inisiasi Firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
+  // Inisiasi GetX Controller Injections
+  Get.lazyPut(() => HomeController());
+
   // Menjalankan Aplikasi
-  runApp(const KuldiFirebaseLibrary());
+  runApp(const HomePage());
 }
 
-class KuldiFirebaseLibrary extends StatelessWidget {
-  const KuldiFirebaseLibrary({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Firebase Kuldi',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: Scaffold(
-        body: SizedBox(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height,
-          child: const Column(
-            children: [
-              Expanded(child: SizedBox()),
-              MiscellaneousList(),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+// Return settingOption untuk konfigurasi yang diinginkan
+WindowOptions _windowsOptionSetting() {
+  return const WindowOptions(
+    size: Size(600, 600),
+    center: true,
+    backgroundColor: Colors.transparent,
+    titleBarStyle: TitleBarStyle.hidden,
+    windowButtonVisibility: true,
+  );
 }

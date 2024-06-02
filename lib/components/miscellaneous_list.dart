@@ -34,19 +34,25 @@ class MiscellaneousList extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
                     child: ElevatedButton(
-                        onPressed: () {
-                          showDialog(
-                              context: context,
-                              builder: (context) {
-                                return const PageHelloWorld();
-                              },
-                              barrierDismissible: true);
-                        },
-                        child: const Text(
-                          "Our Hello World",
-                          maxLines: 2,
-                          textAlign: TextAlign.center,
-                        )),
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) {
+                              return const PageOurHelloWorld();
+                            },
+                            barrierDismissible: true);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)))),
+                      child: const Text(
+                        "Our Hello World",
+                        maxLines: 2,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 11),
+                      ),
+                    ),
                   ),
                 );
               }),
