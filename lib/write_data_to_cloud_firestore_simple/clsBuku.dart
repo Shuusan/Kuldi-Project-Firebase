@@ -3,25 +3,24 @@
 
 import 'dart:convert';
 
-ClsRakBuku clsRakBukuFromJson(String str) =>
-    ClsRakBuku.fromJson(json.decode(str));
+ClsBuku clsBukuFromJson(String str) => ClsBuku.fromJson(json.decode(str));
 
-String clsRakBukuToJson(ClsRakBuku data) => json.encode(data.toJson());
+String clsBukuToJson(ClsBuku data) => json.encode(data.toJson());
 
-class ClsRakBuku {
+class ClsBuku {
   String penulis;
   String judulBuku;
   DateTime tanggalTerbit;
   int jumlahStockBuku;
 
-  ClsRakBuku({
+  ClsBuku({
     required this.penulis,
     required this.judulBuku,
     required this.tanggalTerbit,
     required this.jumlahStockBuku,
   });
 
-  factory ClsRakBuku.fromJson(Map<String, dynamic> json) => ClsRakBuku(
+  factory ClsBuku.fromJson(Map<String, dynamic> json) => ClsBuku(
         penulis: json["penulis"],
         judulBuku: json["judul_buku"],
         tanggalTerbit: DateTime.parse(json["tanggal_terbit"]),

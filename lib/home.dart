@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:kuldi_firebase/components/miscellaneous_list.dart';
 import 'package:kuldi_firebase/components/title_bar.dart';
+import 'package:kuldi_firebase/write_data_to_cloud_firestore_simple/pageAddBuku.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,7 +24,7 @@ class HomePage extends StatelessWidget {
           child: const Column(
             children: [
               TitleBar(isHomePage: true),
-              Expanded(child: SizedBox()),
+              Expanded(child: PageAddBuku()),
               MiscellaneousList(),
             ],
           ),

@@ -40,7 +40,7 @@ class _PageOurHelloWorldState extends State<PageOurHelloWorld> {
                           children: <Widget>[
                             for (var doc in snapshot.data!.docs)
                               Text(
-                                doc["penulis"],
+                                doc["penulis"] + " : " + doc["judul_buku"],
                                 style: const TextStyle(fontSize: 16),
                               )
                           ],
