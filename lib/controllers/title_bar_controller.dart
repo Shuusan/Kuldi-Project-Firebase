@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
 import 'package:window_manager/window_manager.dart';
 
-class HomeController extends GetxController {
+class TitleBarController extends GetxController {
+  TitleBarController();
+
   // Always on Top Rx
   final RxBool _isAlwaysOnTop = true.obs;
   set isAlwaysOnTop(bool value) => _isAlwaysOnTop.value = value;

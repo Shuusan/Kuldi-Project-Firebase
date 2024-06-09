@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kuldi_firebase/others/miscellaneous/our_hello_world/page_our_hello_world.dart';
+import 'package:kuldi_firebase/miscellaneous/our_hello_world/our_hello_world.dart';
 
 class MiscellaneousList extends StatelessWidget {
   const MiscellaneousList({
@@ -38,7 +38,7 @@ class MiscellaneousList extends StatelessWidget {
                         showDialog(
                             context: context,
                             builder: (context) {
-                              return const PageOurHelloWorld();
+                              return const OurHelloWorld();
                             },
                             barrierDismissible: true);
                       },

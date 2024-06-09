@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kuldi_firebase/controllers/title_bar_controller.dart';
 import 'package:kuldi_firebase/firebase_options.dart';
-import 'package:kuldi_firebase/home.dart';
-import 'package:kuldi_firebase/home_controller.dart';
+import 'package:kuldi_firebase/home/home.dart';
 import 'package:window_manager/window_manager.dart';
 
 Future<void> main() async {
@@ -26,7 +26,7 @@ Future<void> main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   // Inisiasi GetX Controller Injections
-  Get.lazyPut(() => HomeController());
+  Get.lazyPut(() => TitleBarController());
 
   // Menjalankan Aplikasi
   runApp(const HomePage());

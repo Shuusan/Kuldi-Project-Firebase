@@ -1,38 +1,46 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:kuldi_firebase/controllers/title_bar_controller.dart';
 
-import '../home_controller.dart';
-
-class TitleBar extends GetView<HomeController> {
+class TitleBar extends GetView<TitleBarController> {
   const TitleBar(
       {super.key,
       this.title = "Flutter-Firebase Library Kuldi-Project",
       this.isHomePage = false});
 
+  // Judul pada AppBar
   final String title;
+  // Bukan HomePage → Tampilkan backbutton
   final bool isHomePage;
 
   @override
   Widget build(BuildContext context) {
-    Get.find<HomeController>();
+    // Inject Get Controller
+    Get.find<TitleBarController>();
+
+    // Bar pengganti AppBar
     return WindowTitleBarBox(
       child: Container(
         color: Colors.deepPurple.shade200,
         child: Row(
           children: [
+            // Tamplikan Back Button jika bukan HomePage
             if (!isHomePage)
               IconButton(
                   iconSize: 18,
                   onPressed: () => Get.back(),
                   icon: const Icon(Icons.arrow_back_sharp)),
+
             // Daerah Drag Window
             Expanded(
+              // Membuat Bagian ini Draggable
               child: MoveWindow(
                 child: Padding(
                   padding: const EdgeInsets.only(left: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
+                    // Judul dari Window
                     child: Text(
                       title,
                       overflow: TextOverflow.ellipsis,
@@ -61,7 +69,6 @@ class TitleBar extends GetView<HomeController> {
                       size: 15, color: Colors.white);
                 }
               },
-
               //toggle jika button dipencet
               onPressed: () {
                 controller.toggleAlwaysOnTop();

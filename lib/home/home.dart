@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:kuldi_firebase/components/miscellaneous_list.dart';
+import 'package:kuldi_firebase/home/components/cloud_firestore_list.dart';
+import 'package:kuldi_firebase/home/components/miscellaneous_list.dart';
 import 'package:kuldi_firebase/components/title_bar.dart';
-import 'package:kuldi_firebase/write_data_to_cloud_firestore_simple/pageAddBuku.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -23,8 +23,16 @@ class HomePage extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           child: const Column(
             children: [
+              // Pengganti App Bar Custom untuk Windows
               TitleBar(isHomePage: true),
-              Expanded(child: PageAddBuku()),
+
+              // Fitur Cloud Firestore Library
+              CloudFirestoreList(),
+
+              // List semua fitur firebase yang ada
+              Expanded(child: SizedBox()),
+
+              // Fitur diluar firebase / Episode pengisi
               MiscellaneousList(),
             ],
           ),
