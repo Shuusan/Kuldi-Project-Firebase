@@ -22,5 +22,6 @@ Untuk memulai dengan proyek ini, ikuti langkah-langkah berikut:
 
 ### Dukungan
 
-Jika Anda merasa proyek ini bermanfaat dan ingin memberikan dukungan, Anda bisa melakukannya melalui Trakteer:
+Jika Anda merasa proyek ini bermanfaat dan ingin memberikan dukungan, 
+Anda bisa melakukannya melalui Trakteer:
 [Dukung via Trakteer : Shuusan](https://trakteer.id/shuusan/tip?quantity=1)
