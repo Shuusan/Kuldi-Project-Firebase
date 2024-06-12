@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:kuldi_firebase/firebase/cloud_firestore/simpe_add_data/class/buku.dart';
+import 'package:kuldi_firebase/firebase/cloud_firestore/simple_add_data/class/buku.dart';
 
 // Collection name for rak buku
 const String collectionName = "rak-buku";

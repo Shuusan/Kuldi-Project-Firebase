@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:kuldi_firebase/components/title_bar.dart';
-import 'package:kuldi_firebase/firebase/cloud_firestore/simpe_add_data/class/buku.dart';
-import 'package:kuldi_firebase/firebase/cloud_firestore/simpe_add_data/service/rak_buku_service.dart';
+
+import '../../../components/title_bar.dart';
+import 'class/buku.dart';
+import 'service/rak_buku_service.dart';
 
 class SimpleAddData extends StatelessWidget {
+  SimpleAddData({super.key});
+
   // Text Controller
   final TextEditingController tecPenulis = TextEditingController();
   final TextEditingController tecJudulBuku = TextEditingController();
@@ -14,21 +17,17 @@ class SimpleAddData extends StatelessWidget {
   // Service rak buku
   final ServiceRakBuku serviceRakBuku = ServiceRakBuku();
 
-  // Constructor
-  SimpleAddData({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
+          // Judul Window - Untuk Title Bar dan button back
           // Judul Window
           const TitleBar(
             title: "Add Simple Data - Cloud Firestore",
             isHomePage: false,
           ),
-
           // Form untuk mengisi data penulis, nama buku, dan jumlah halaman
           Expanded(
             child: Padding(
@@ -65,7 +64,7 @@ class SimpleAddData extends StatelessWidget {
             ),
           ),
 
-          //Button Add data to Cloud Firestore
+          // Button Add data to Cloud Firestore
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: SizedBox(
@@ -76,12 +75,15 @@ class SimpleAddData extends StatelessWidget {
                   if (tecPenulis.text.isNotEmpty &&
                       tecPenulis.text.isNotEmpty &&
                       tecJumlahHalaman.text.isNotEmpty) {
+                    // Membuat object buku berdasarkan data input
                     Buku buku = Buku(
                       penulis: tecPenulis.text,
                       judulBuku: tecJudulBuku.text,
                       tanggalTerbit: DateTime.now(),
                       jumlahStockBuku: int.parse(tecJumlahHalaman.text),
                     );
+
+                    // Memanggil service simple add data
                     serviceRakBuku.addBuku(buku);
                   }
 
