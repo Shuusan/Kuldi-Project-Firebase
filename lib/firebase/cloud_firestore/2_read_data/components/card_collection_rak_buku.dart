@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'card_buku.dart';
 
 import '../../classes/buku.dart';
@@ -17,8 +18,22 @@ class CardCollectionRakBuku extends StatelessWidget {
     return StreamBuilder<QuerySnapshot<Buku>>(
       stream: serviceRakBuku.streamCollectionData(),
       builder: (context, snapshot) {
-        // Check apakah ada data atau tidak
-        if (snapshot.hasData) {
+        // Data Error : Tampilkan Pesan Error
+        if (snapshot.hasError) {
+          return Center(child: Text("Error : ${snapshot.error}"));
+        }
+
+        // Sedang mengambil data : Circular Progress
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        // Data diterima : List Card Buku
+
+        if (snapshot.hasData &&
+            snapshot.connectionState == ConnectionState.active) {
           var data = snapshot.data!.docs;
 
           // Create list builder
