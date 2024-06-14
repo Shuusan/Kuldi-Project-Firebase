@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:kuldi_firebase/firebase/cloud_firestore/simple_add_data/class/buku.dart';
+import 'package:kuldi_firebase/firebase/cloud_firestore/classes/buku.dart';
 
 // Collection name for rak buku
 const String collectionName = "rak-buku";
@@ -23,5 +23,10 @@ class ServiceRakBuku {
   // Services - Menambahkan data menggunakan object class buku
   Future<void> addBuku(Buku buku) async {
     await _rakBukuRef.add(buku);
+  }
+
+  // Stream collection Rak-Buku
+  Stream<QuerySnapshot<Buku>> streamCollectionData() {
+    return _rakBukuRef.snapshots();
   }
 }

@@ -17,7 +17,7 @@ class Buku {
   factory Buku.fromJson(Map<String, dynamic> json) => Buku(
         penulis: json["penulis"],
         judulBuku: json["judul_buku"],
-        tanggalTerbit: DateTime.parse(json["tanggal_terbit"]),
+        tanggalTerbit: json["tanggal_terbit"].toDate(),
         jumlahStockBuku: json["jumlah_stock_buku"],
       );
 

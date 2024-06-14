@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 import '../../../components/title_bar.dart';
-import 'class/buku.dart';
-import 'service/rak_buku_service.dart';
+import '../classes/buku.dart';
+import '../service/rak_buku_service.dart';
 
 class SimpleAddData extends StatelessWidget {
   SimpleAddData({super.key});

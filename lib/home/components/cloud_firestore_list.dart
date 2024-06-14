@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../firebase/cloud_firebase_export.dart';
-import '../../firebase/cloud_firestore/simple_add_data/simple_add_data.dart';
+import 'package:kuldi_firebase/home/helpers/cloud_firestore_constant.dart';
 
 class CloudFirestoreList extends StatelessWidget {
   const CloudFirestoreList({
@@ -23,7 +22,7 @@ class CloudFirestoreList extends StatelessWidget {
           child: ListView.builder(
 
               // Jumlah Item yang akan ditampilkan
-              itemCount: 1,
+              itemCount: lsCloudFirebaseTopic.length,
 
               // Buat biar discrollnya horizontal
               scrollDirection: Axis.horizontal,
@@ -42,8 +41,7 @@ class CloudFirestoreList extends StatelessWidget {
                         showDialog(
                             context: context,
                             builder: (context) {
-                              // TODO : Uncomment
-                              return SimpleAddData();
+                              return lsCloudFirebaseTopic[index].page;
                             },
                             barrierDismissible: true);
                       },
@@ -51,11 +49,11 @@ class CloudFirestoreList extends StatelessWidget {
                           shape: const RoundedRectangleBorder(
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10)))),
-                      child: const Text(
-                        "Simple Add Data",
+                      child: Text(
+                        lsCloudFirebaseTopic[index].title,
                         maxLines: 2,
                         textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 11),
+                        style: const TextStyle(fontSize: 11),
                       ),
                     ),
                   ),
