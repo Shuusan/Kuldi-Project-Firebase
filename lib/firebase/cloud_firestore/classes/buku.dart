@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class Buku {
   // Properties
   String penulis;
@@ -25,7 +27,7 @@ class Buku {
   Map<String, dynamic> toJson() => {
         "penulis": penulis,
         "judul_buku": judulBuku,
-        "tanggal_terbit": tanggalTerbit.toIso8601String(),
+        "tanggal_terbit": Timestamp.fromDate(tanggalTerbit),
         "jumlah_stock_buku": jumlahStockBuku,
       };
 }

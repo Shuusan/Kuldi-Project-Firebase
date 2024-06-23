@@ -3,8 +3,8 @@ import 'components/card_collection_rak_buku.dart';
 
 import '../../../components/title_bar.dart';
 
-class ReadData extends StatelessWidget {
-  const ReadData({super.key});
+class StreamData extends StatelessWidget {
+  const StreamData({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -15,5 +15,5 @@ List<CloudFirebaseTopic> lsCloudFirebaseTopic = [
   CloudFirebaseTopic("Simple add data", SimpleAddData()),
 
   //Module 2 : Lesson 2
-  CloudFirebaseTopic("Read Data", const ReadData()),
+  CloudFirebaseTopic("Read Data", const StreamData()),
 ];
